@@ -1,4 +1,4 @@
-package zeldaclone;
+package com.ammstudios.main;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
