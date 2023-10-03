@@ -16,6 +16,7 @@ import javax.swing.WindowConstants;
 
 import com.ammstudios.entities.Entity;
 import com.ammstudios.entities.Player;
+import com.ammstudios.world.World;
 
 public class Game extends Canvas implements Runnable, KeyListener{
 
@@ -29,7 +30,8 @@ public class Game extends Canvas implements Runnable, KeyListener{
 	private BufferedImage image;
 	public List<Entity> entities;
 
-	public Spritesheet spritesheet;
+	public static Spritesheet spritesheet;
+	public static World world;
 
 	public Player player;
 
@@ -42,7 +44,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
 		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 		entities = new ArrayList<Entity>();
 		spritesheet = new Spritesheet("/spritesheet.png");
-
+		world = new World("/map.png");
 		// CONFIG PLAYER
 		player = new Player(0,0,16,16,spritesheet.getSprite(32, 0, 16, 16));
 		entities.add(player);
@@ -123,6 +125,8 @@ public class Game extends Canvas implements Runnable, KeyListener{
 
 		//INIT GAME RENDER
 
+		world.render(g);
+		
 		for(int i = 0; i < entities.size(); i++) {
 			Entity e = entities.get(i);
 			e.render(g);

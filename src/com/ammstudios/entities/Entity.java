@@ -5,14 +5,14 @@ import java.awt.image.BufferedImage;
 
 public class Entity {
 	
-	protected int x;
-	protected int y;
+	protected double x;
+	protected double y;
 	protected int width;
 	protected int height;
 	
 	private BufferedImage sprite;
 	
-	public Entity(int x, int y, int width, int height, BufferedImage sprite) {
+	public Entity(double x, double y, int width, int height, BufferedImage sprite) {
 		super();
 		this.x = x;
 		this.y = y;
@@ -21,19 +21,19 @@ public class Entity {
 		this.sprite = sprite;
 	}
 
-	public int getX() {
-		return x;
+	public double getX() {
+		return  x;
 	}
 
-	public void setX(int x) {
+	public void setX(double x) {
 		this.x = x;
 	}
 
-	public int getY() {
-		return y;
+	public double getY() {
+		return  y;
 	}
 
-	public void setY(int y) {
+	public void setY(double y) {
 		this.y = y;
 	}
 
@@ -58,7 +58,7 @@ public class Entity {
 	}
 
 	public void render(Graphics g) {
-		g.drawImage(sprite, this.getX(), this.getY(), null);
+		g.drawImage(sprite, (int) this.getX(), (int) this.getY(), null);
 	}
 	
 }
